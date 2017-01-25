@@ -21,6 +21,13 @@ The function \code{make_metdes} creates the \code{\link[metsyn]{metdes}}
 dataset, which contains descriptive information on the 
 \code{\link[metsyn]{metsyn}} dataset.
 }
+\examples{
+\dontrun{
+dir.create("data-raw")
+make_metdes(save_it = TRUE)
+}
+
+}
 \seealso{
 \code{\link[metsyn]{metdes}}, 
 \code{\link[metsyn]{make_metsyn}}.

@@ -3,14 +3,14 @@
 \docType{data}
 \name{metsyn}
 \alias{metsyn}
-\title{Meteo France Synop Dataset (1996-2016)}
-\format{a \code{\link[tibble]{tibble}} with 59 columns and 3516433 rows.}
+\title{Meteo France Synop data for the year 2014}
+\format{a \code{\link[tibble]{tibble}} with 59 columns and 170075 rows.}
 \source{
 Meteo France, see \href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}.
 }
 \description{
-This dataset is made of meteorological data recorded every three hours from 
-1996 to 2016 on 62 French meteorological stations. 
+This dataset is made of meteorological data recorded every three hours in 
+2014 on 62 French meteorological stations. 
 
 The columns contained in this dataset are described by the 
 \code{\link[metsyn]{metdes}} dataset.

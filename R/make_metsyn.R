@@ -27,6 +27,19 @@
 #' @importFrom stringr str_sub
 #' @export
 #' 
+#' @examples
+#' \dontrun{  
+#' dir.create("data-raw")
+#' for (y in 1996:2016) {
+#'   for (m in 1:12) {
+#'     m <- if (m < 10) paste0(0, m) else m
+#'     download_monthly_synop(date = paste0(y, m), 
+#'                            mode = "wb")
+#'   }
+#' }
+#' make_metsyn(save_it = TRUE)
+#' }
+#' 
 make_metsyn <-
 function(path = ".", #system.file(package = 'metsyn')
          save_it = FALSE)

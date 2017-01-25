@@ -21,6 +21,20 @@ The function \code{make_metsyn} creates the \code{\link[metsyn]{metsyn}}
 dataset from the files downloaded with 
 \code{\link[metsyn]{download_monthly_synop}}.
 }
+\examples{
+\dontrun{  
+dir.create("data-raw")
+for (y in 1996:2016) {
+  for (m in 1:12) {
+    m <- if (m < 10) paste0(0, m) else m
+    download_monthly_synop(date = paste0(y, m), 
+                           mode = "wb")
+  }
+}
+make_metsyn(save_it = TRUE)
+}
+
+}
 \seealso{
 \code{\link[metsyn]{metsyn}}, 
 \code{\link[metsyn]{download_monthly_synop}}

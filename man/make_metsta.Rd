@@ -21,6 +21,13 @@ The function \code{make_metsta} creates the \code{\link[metsyn]{metsta}}
 dataset from the file \code{postesSynop.csv} downloaded 
 \href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}.
 }
+\examples{
+\dontrun{
+dir.create("data-raw")
+make_metsta(save_it = TRUE)
+}
+
+}
 \seealso{
 \code{\link[metsyn]{metsta}}, 
 \code{\link[metsyn]{make_metsyn}}

@@ -24,6 +24,12 @@
 #' @import readr
 #' @export
 #' 
+#' @examples 
+#' \dontrun{
+#' dir.create("data-raw")
+#' make_metsta(save_it = TRUE)
+#' }
+#' 
 make_metsta <-
 function(path = ".", #system.file(package = 'metsyn')
          save_it = FALSE)

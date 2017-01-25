@@ -24,6 +24,12 @@
 #' @importFrom tibble tibble_
 #' @export
 #' 
+#' @examples 
+#' \dontrun{
+#' dir.create("data-raw")
+#' make_metdes(save_it = TRUE)
+#' }
+#' 
 make_metdes <- 
 function(path = ".", 
          save_it = FALSE)
