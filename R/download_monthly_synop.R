@@ -1,4 +1,5 @@
 
+#' @importFrom utils download.file
 #' @export
 #' @rdname download_daily_synop
 #' 
@@ -8,8 +9,9 @@ function(path = ".",
          ...)
 {
   file <- paste0("synop.", date, ".csv.gz")
-  download.file(url = paste(metsyn_url(), file, sep = "/"), 
-                destfile = file.path(path, "data-raw", paste0("monthly_", file)), 
-                ...)
+  dir.create(file.path(path, "data-raw"), showWarnings = FALSE)
+  utils::download.file(url = paste(metsyn_url(), file, sep = "/"), 
+                       destfile = file.path(path, "data-raw", paste0("monthly_", file)), 
+                       ...)
   invisible(NULL)
 }

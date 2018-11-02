@@ -33,6 +33,7 @@ function(path = ".",
          ...)
 {
   file <- paste0("synop.", date, ".csv")
+  dir.create(file.path(path, "data-raw"), showWarnings = FALSE)
   utils::download.file(url = file.path(metsyn_url(), file), 
                        destfile = file.path(path, "data-raw", paste0("daily_", file)), 
                        ...)

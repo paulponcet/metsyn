@@ -2,7 +2,11 @@
 % Please edit documentation in R/make_metsta.R
 \name{make_metsta}
 \alias{make_metsta}
-\title{Creation of the 'metsta' dataset}
+\alias{metsta}
+\title{Creation of the 'metsta' dataset made of Meteo France Synop meteorogical stations}
+\source{
+Meteo France, see \href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}.
+}
 \usage{
 make_metsta(path = ".", save_it = FALSE)
 }
@@ -14,22 +18,42 @@ make_metsta(path = ".", save_it = FALSE)
 folder \code{file.path(path, "data")}.}
 }
 \value{
-Returns invisibly the tibble created.
+Returns invisibly the tibble created, with 5 columns and 62 rows.
 }
 \description{
-The function \code{make_metsta} creates the \code{\link[metsyn]{metsta}} 
+The function \code{make_metsta} creates the \code{metsta} 
 dataset from the file \code{postesSynop.csv} downloaded 
-\href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}.
+\href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}. 
+\code{make_metsta} looks for this file in the 
+\code{file.path(path, "data-raw")} folder. 
+
+This dataset contains the following columns: 
+\itemize{
+  \item \code{Id}: WMO meteorological station id; 
+  \item \code{Name}: name of the meteorological station; 
+  \item \code{Latitude}, \code{Longitude}, \code{Altitude}: coordinates of 
+  the meteorological station. 
+}
+}
+\note{
+This dataset is distributed by Meteo France under the terms of the 
+\href{https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Open_Licence.pdf}{Open Licence 1.0}, 
+provided by \href{https://www.etalab.gouv.fr/en/qui-sommes-nous}{Etalab} and 
+designed to be compatible with the "Creative Commons Attribution 2.0" 
+(CC-BY 2.0) licence of Creative Commons. 
+Etalab is the task force under the French Prime Minister's authority 
+leading Open Government Data policy for France.
 }
 \examples{
 \dontrun{
-dir.create("data-raw")
+dir.create("data-raw", showWarnings = FALSE)
 make_metsta(save_it = TRUE)
 }
 
 }
 \seealso{
-\code{\link[metsyn]{metsta}}, 
-\code{\link[metsyn]{make_metsyn}}
+\code{\link[metsyn]{metsyn}} for the dataset containing Meteo France 
+Synop data; 
+\code{\link[metsyn]{metdes}} for the dataset which gives some descriptive 
+information on \code{metsyn}.
 }
-

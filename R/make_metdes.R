@@ -1,10 +1,32 @@
 #' @title 
-#' Creation of the 'metdes' dataset
+#' Creation of the 'metdes' dataset, made of descriptive information on the 'metsyn' dataset
 #' 
 #' @description 
-#' The function \code{make_metdes} creates the \code{\link[metsyn]{metdes}} 
+#' The function \code{make_metdes} creates the \code{metdes} 
 #' dataset, which contains descriptive information on the 
-#' \code{\link[metsyn]{metsyn}} dataset. 
+#' \code{metsyn} dataset. 
+#' 
+#' The dataset contains the following columns: 
+#' \itemize{
+#'   \item \code{Short_Name}: short name of the variable, in French; 
+#'   \item \code{Long_name_French}: name of the variable, in French; 
+#'   \item \code{Long_Name_English}: currently not provided yet; 
+#'   \item \code{Type}: type of the variable (one of \code{character}, 
+#'   \code{numeric}, \code{integer}); 
+#'   \item \code{Unit}: physical unit of the variable. 
+#' }
+#' 
+#' @source 
+#' Meteo France, see \href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}. 
+#' 
+#' @note 
+#' This dataset is distributed by Meteo France under the terms of the 
+#' \href{https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Open_Licence.pdf}{Open Licence 1.0}, 
+#' provided by \href{https://www.etalab.gouv.fr/en/qui-sommes-nous}{Etalab} and 
+#' designed to be compatible with the "Creative Commons Attribution 2.0" 
+#' (CC-BY 2.0) licence of Creative Commons. 
+#' Etalab is the task force under the French Prime Minister's authority 
+#' leading Open Government Data policy for France. 
 #' 
 #' @param path
 #' character. Data once created are saved in the folder 
@@ -15,18 +37,20 @@
 #' folder \code{file.path(path, "data")}. 
 #' 
 #' @return 
-#' Returns invisibly the tibble created. 
+#' Returns invisibly the tibble created, with 5 columns and 59 rows. 
 #' 
+#' @aliases metdes
 #' @seealso 
-#' \code{\link[metsyn]{metdes}}, 
-#' \code{\link[metsyn]{make_metsyn}}. 
+#' \code{\link[metsyn]{metsyn}} for the dataset containing Meteo France 
+#' Synop data; 
+#' \code{\link[metsyn]{metsta}} for the dataset on the meteorological stations 
+#' involved. 
 #' 
 #' @importFrom tibble tibble_
 #' @export
 #' 
 #' @examples 
 #' \dontrun{
-#' dir.create("data-raw")
 #' make_metdes(save_it = TRUE)
 #' }
 #' 
@@ -44,7 +68,7 @@ function(path = ".",
                      "phenspe4", "nnuage1", "ctype1", "hnuage1", 
                      "nnuage2", "ctype2", "hnuage2", "nnuage3", "ctype3", "hnuage3", "nnuage4", 
                      "ctype4", "hnuage4"), 
-    Long_name_French = ~ c("Indicatif_OMM_station", 
+    Long_Name_French = ~ c("Indicatif_OMM_station", 
                            "Date_UTC", 
                            "Pression_au_niveau_mer", 
                            "Variation_de_pression_en_3_heures", 
@@ -79,7 +103,7 @@ function(path = ".",
                            "Rafales_sur_une_periode", 
                            "Periode_de_mesure_de_la_rafale", 
                            "Etat_du_sol", 
-                           "Hauteur_totale_de_la_couche_de_neige,_glace,_autre au_sol", 
+                           "Hauteur_totale_de_la_couche_de_neige_glace_autre au_sol", 
                            "Hauteur_de_la_neige_fraiche", 
                            "Periode_de_mesure_de_la_neige_fraiche", 
                            "Precipitations_dans_la_derniere_heure", 
@@ -131,5 +155,5 @@ function(path = ".",
          compress = "xz")
   }
   
-  return(invisible(metdes))
+  invisible(metdes)
 }

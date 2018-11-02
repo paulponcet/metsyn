@@ -2,7 +2,11 @@
 % Please edit documentation in R/make_metsyn.R
 \name{make_metsyn}
 \alias{make_metsyn}
-\title{Creation of the 'metsyn' dataset}
+\alias{metsyn}
+\title{Creation of the 'metsyn' dataset made of Meteo France Synop data}
+\source{
+Meteo France, see \href{https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32}{here}.
+}
 \usage{
 make_metsyn(path = ".", save_it = FALSE)
 }
@@ -14,16 +18,33 @@ make_metsyn(path = ".", save_it = FALSE)
 folder \code{file.path(path, "data")}.}
 }
 \value{
-Returns invisibly the tibble created.
+Returns invisibly the tibble created, with 59 columns.
 }
 \description{
-The function \code{make_metsyn} creates the \code{\link[metsyn]{metsyn}} 
+The function \code{make_metsyn} creates the \code{metsyn} 
 dataset from the files downloaded with 
-\code{\link[metsyn]{download_monthly_synop}}.
+\code{\link[metsyn]{download_monthly_synop}}. 
+\code{make_metsyn} looks for these files in the 
+\code{file.path(path, "data-raw")} folder. 
+
+This dataset is made of meteorological data recorded every three hours on 
+62 French meteorological stations. 
+
+The columns contained in this dataset are described by the 
+\code{\link[metsyn]{metdes}} dataset.
+}
+\note{
+This dataset is distributed by Meteo France under the terms of the 
+\href{https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Open_Licence.pdf}{Open Licence 1.0}, 
+provided by \href{https://www.etalab.gouv.fr/en/qui-sommes-nous}{Etalab} and 
+designed to be compatible with the "Creative Commons Attribution 2.0" 
+(CC-BY 2.0) licence of Creative Commons. 
+Etalab is the task force under the French Prime Minister's authority 
+leading Open Government Data policy for France.
 }
 \examples{
-\dontrun{  
-dir.create("data-raw")
+\dontrun{
+dir.create("data-raw", showWarnings = FALSE)
 for (y in 1996:2016) {
   for (m in 1:12) {
     m <- if (m < 10) paste0(0, m) else m
@@ -36,7 +57,9 @@ make_metsyn(save_it = TRUE)
 
 }
 \seealso{
-\code{\link[metsyn]{metsyn}}, 
-\code{\link[metsyn]{download_monthly_synop}}
+\code{\link[metsyn]{download_monthly_synop}}; 
+\code{\link[metsyn]{metdes}} for the dataset which gives some descriptive 
+information on \code{metsyn}; 
+\code{\link[metsyn]{metsta}} for the dataset on the meteorological stations 
+involved.
 }
-
