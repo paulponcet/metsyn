@@ -1,18 +1,15 @@
 Package: metsyn
 Type: Package
 Title: Interface with the Meteo France Synop Data API
-Version: 0.1.1
-Date: 2017-01-20
+Version: 0.1.2
+Date: 2018-11-01
 Authors@R: person("Paul", "Poncet", , "paulponcet@yahoo.fr", role = c("aut", "cre"))
 Description: Provides an interface with the Meteo France Synop data API 
     (see <https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32> 
     for more information). 
     The Meteo France Synop data are made of meteorological data recorded 
     every three hours on 62 French meteorological stations. 
-    This dataset is distributed by Meteo France under the terms of the 
-    Open Licence 1.0, provided by Etalab and designed to be compatible with the 
-    "Creative Commons Attribution 2.0" (CC-BY 2.0) licence of Creative Commons. 
-License: file LICENCE
+License: MIT + file LICENSE
 LazyData: TRUE
 Depends:
     R (>= 3.1.3)
@@ -24,4 +21,4 @@ Imports:
     utils
 URL: https://github.com/paulponcet/metsyn
 BugReports: https://github.com/paulponcet/metsyn/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.0

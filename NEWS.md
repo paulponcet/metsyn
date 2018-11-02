@@ -1,6 +1,7 @@
-# metsyn 0.1.1
+# metsyn 0.1.2
 
-* 2015-2016 only (instead of 1996-2016)
+* Datasets are no longer included in the package. Functions are provided to let 
+every user build them directly. 
 
 
 # metsyn 0.1.0

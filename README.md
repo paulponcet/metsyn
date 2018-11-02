@@ -11,8 +11,3 @@ You can install 'metsyn' from GitHub with:
 # install.packages("devtools")
 devtools::install_github("paulponcet/metsyn")
 ```
-
-
-# License
-
-[![License](http://img.shields.io/:license-Open_Licence_ETALAB-blue.svg)](https://github.com/paulponcet/metsyn/blob/master/LICENCE)
